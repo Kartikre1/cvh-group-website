@@ -7,6 +7,7 @@ Published with GitHub Pages from `index.html` on `main`. Push to `main` to updat
 ## Before advertising this site
 
 - [ ] Replace the placeholder logo `<svg>` with the real artwork (marked `<!-- SWAP -->`, two places)
+- [ ] Replace the placeholder `favicon.svg` with the real logo mark
 - [ ] Add the real phone, email, address and opening hours (currently "To be confirmed")
 - [ ] Set the hire rates (currently "POA")
 - [ ] Point the enquiry form at a real endpoint (Formspree / Netlify Forms / own handler)

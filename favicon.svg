@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <!-- Placeholder mark: swap for the real CVH logo. -->
+  <defs>
+    <linearGradient id="g" x1="0.04" y1="0.72" x2="0.96" y2="0.28">
+      <stop offset="0" stop-color="#2C6FE8"/>
+      <stop offset="0.42" stop-color="#1CA6DF"/>
+      <stop offset="1" stop-color="#12DCC6"/>
+    </linearGradient>
+  </defs>
+  <circle cx="60" cy="60" r="56" fill="#FFFFFF"/>
+  <circle cx="60" cy="60" r="44" fill="none" stroke="url(#g)" stroke-width="22"/>
+  <text x="60" y="62" text-anchor="middle" dominant-baseline="central"
+        font-family="Arial Black, Arial, sans-serif" font-weight="900"
+        font-size="58" letter-spacing="-3" fill="#152A5E"
+        stroke="#FFFFFF" stroke-width="10" paint-order="stroke">VH</text>
+</svg>

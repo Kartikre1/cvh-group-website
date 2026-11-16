@@ -1,4 +1,17 @@
-<title>CVH Group</title>
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CVH Group — Van Hire, Servicing &amp; MOT in Wolverhampton</title>
+<meta name="description" content="Self-drive van hire by the day, week or month, and a van workshop for servicing, MOT and repairs, in Wolverhampton and the Black Country.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CVH Group">
+<meta property="og:title" content="CVH Group — Van Hire, Servicing &amp; MOT">
+<meta property="og:description" content="Self-drive van hire and a van workshop in one yard, in Wolverhampton and the Black Country.">
+<meta property="og:locale" content="en_GB">
+<!-- SWAP: replace favicon.svg with the real logo mark -->
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
@@ -41,7 +54,8 @@
   --link:#1E56C8;
   --on-brand:#FFFFFF;
   --on-brand-dim:#C9DDFA;
-  --star:#2C6FE8;
+  --focus:#1E56C8;         /* focus ring: 6:1+ on the light grounds */
+  --field-border:#6E83AD;  /* form field edges: 3.8:1 on white */
   --shadow:0 1px 2px rgba(21,42,94,.07),0 10px 26px -14px rgba(21,42,94,.30);
 
   --maxw:1180px;
@@ -61,7 +75,8 @@
     --link:#5FE9DA;
     --cyan-wash:#0F2B44;
     --blue-wash:#132550;
-    --star:#5FE9DA;
+    --focus:#5FE9DA;
+    --field-border:#6683C2;
     --shadow:0 1px 2px rgba(0,0,0,.45),0 10px 26px -14px rgba(0,0,0,.8);
   }
 }
@@ -77,7 +92,8 @@
   --link:#5FE9DA;
   --cyan-wash:#0F2B44;
   --blue-wash:#132550;
-  --star:#5FE9DA;
+  --focus:#5FE9DA;
+  --field-border:#6683C2;
   --shadow:0 1px 2px rgba(0,0,0,.45),0 10px 26px -14px rgba(0,0,0,.8);
 }
 
@@ -103,7 +119,9 @@ h1,h2,h3,h4{
 }
 p{margin:0}
 a{color:var(--link)}
-:focus-visible{outline:3px solid var(--cyan);outline-offset:2px;border-radius:2px}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:2px}
+/* on the blue bars and bands the ring goes white */
+.sidebar,.mobile-head,.utility,.preview-flag,.hero-facts,.band-brand,footer{--focus:#FFFFFF}
 
 .eyebrow{
   font-family:Archivo,sans-serif;
@@ -172,7 +190,7 @@ a{color:var(--link)}
 }
 .rail-hours b{color:#fff;font-weight:500}
 
-.topbar{display:none}
+.mobile-head{display:none}
 
 /* preview flag - removed once the real content lands */
 .preview-flag{
@@ -351,8 +369,8 @@ a{color:var(--link)}
 /* ---------------- included checklist ---------------- */
 
 .included{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem 1.8rem;margin-top:2.2rem}
-.inc h4{font-size:.98rem;font-weight:700;margin-bottom:.35rem;display:flex;align-items:center;gap:.5rem}
-.inc h4::before{
+.inc h3{font-size:.98rem;font-weight:700;margin-bottom:.35rem;display:flex;align-items:center;gap:.5rem}
+.inc h3::before{
   content:"";width:9px;height:9px;flex:none;border-radius:1px;
   background:var(--cyan);transform:rotate(45deg);
 }
@@ -393,28 +411,6 @@ a{color:var(--link)}
 .courtesy-card .price small{font-size:.85rem;font-weight:500;color:var(--on-brand-dim);letter-spacing:0}
 .courtesy-card p{color:var(--on-brand-dim);font-size:.92rem;margin-top:.6rem}
 
-/* ---------------- reviews ---------------- */
-
-.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
-.review{
-  background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:1.5rem;
-  display:flex;flex-direction:column;gap:.9rem;
-}
-.stars{color:var(--star);letter-spacing:.12em;font-size:.95rem}
-.review blockquote{margin:0;font-size:1rem;color:var(--ink)}
-.review cite{
-  margin-top:auto;font-style:normal;font-family:"IBM Plex Mono",monospace;
-  font-size:.72rem;letter-spacing:.06em;color:var(--ink-2);
-}
-
-.badges{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2rem;padding-top:1.6rem;border-top:1px solid var(--line)}
-.badge{
-  font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.08em;
-  text-transform:uppercase;color:var(--link);
-  border:1px solid var(--line-strong);border-radius:2px;padding:.45rem .7rem;
-  background:var(--surface);
-}
-
 /* ---------------- contact ---------------- */
 
 .contact{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:2.6rem}
@@ -428,17 +424,17 @@ label span{
 }
 input,select,textarea{
   font-family:"Public Sans",sans-serif;font-size:.98rem;color:var(--ink);
-  background:var(--surface);border:1px solid var(--line-strong);border-radius:3px;
+  background:var(--surface);border:1px solid var(--field-border);border-radius:3px;
   padding:.7rem .8rem;width:100%;
 }
 textarea{resize:vertical;min-height:110px}
-input:focus,select:focus,textarea:focus{border-color:var(--cyan);outline:none;box-shadow:0 0 0 3px rgba(34,201,224,.3)}
+input:focus,select:focus,textarea:focus{border-color:var(--focus);outline:none;box-shadow:0 0 0 1px var(--focus)}
 
 .formnote{
   border:1px solid var(--line);border-left:3px solid var(--cyan);
   background:var(--cyan-wash);border-radius:3px;padding:1rem 1.1rem;font-size:.92rem;
 }
-.formnote h4{font-size:.95rem;font-weight:700;margin-bottom:.3rem}
+.formnote h3{font-size:.95rem;font-weight:700;margin-bottom:.3rem}
 .formnote p{color:var(--ink-2)}
 
 .details{display:grid;gap:1.3rem;align-content:start}
@@ -451,11 +447,6 @@ input:focus,select:focus,textarea:focus{border-color:var(--cyan);outline:none;bo
 .detail .v a{text-decoration:none}
 .detail .v a:hover{text-decoration:underline}
 .detail address{font-style:normal;line-height:1.6}
-
-table.hours{width:100%;border-collapse:collapse;font-family:"IBM Plex Mono",monospace;font-size:.82rem;font-variant-numeric:tabular-nums}
-table.hours th{text-align:left;font-weight:400;color:var(--ink-2);padding:.3rem 0}
-table.hours td{text-align:right;padding:.3rem 0;color:var(--ink);font-weight:500}
-table.hours tr.closed td{color:var(--ink-2)}
 
 /* ---------------- footer ---------------- */
 
@@ -472,7 +463,7 @@ footer .draft{
 /* ---------------- responsive ---------------- */
 
 @media (max-width:1080px){
-  .fleet,.workshop,.reviews{grid-template-columns:repeat(2,1fr)}
+  .fleet,.workshop{grid-template-columns:repeat(2,1fr)}
   .included{grid-template-columns:repeat(2,1fr)}
   .steps{grid-template-columns:repeat(2,1fr);gap:1.6rem 0}
   .step:nth-child(3){border-left:0;padding-left:0}
@@ -481,11 +472,14 @@ footer .draft{
 @media (max-width:900px){
   .shell{grid-template-columns:1fr}
   .sidebar{display:none}
+  .mobile-head{display:block;position:sticky;top:0;z-index:20}
   .topbar{
     display:flex;align-items:center;gap:.75rem;
     background:var(--grad-deep);
-    padding:.7rem 1.2rem;position:sticky;top:0;z-index:20;
+    padding:.7rem 1.2rem;
   }
+  /* jump targets clear the sticky bar instead of sliding under it */
+  section[id],header[id]{scroll-margin-top:5.5rem}
   .topbar .brand{padding:0;flex:1}
   .menu-btn{
     background:transparent;border:1px solid rgba(255,255,255,.6);color:#fff;
@@ -493,7 +487,12 @@ footer .draft{
     font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;
   }
   .menu-btn[aria-expanded="true"]{background:#fff;color:var(--blue-deep)}
-  .menu-panel{background:var(--blue);}
+  .menu-panel{
+    position:absolute;left:0;right:0;top:100%;
+    background:var(--blue);
+    max-height:calc(100vh - 5.5rem);overflow-y:auto;
+    box-shadow:0 14px 24px -12px rgba(6,30,80,.55);
+  }
   .menu-panel .rail-nav{padding:.5rem 0}
   .wrap{padding:0 1.3rem}
   .utility{padding:.55rem 1.3rem;font-size:.74rem;gap:.35rem 1rem}
@@ -508,7 +507,7 @@ footer .draft{
 }
 
 @media (max-width:620px){
-  .fleet,.workshop,.reviews,.included,.steps,.row2{grid-template-columns:1fr}
+  .fleet,.workshop,.included,.steps,.row2{grid-template-columns:1fr}
   .step{border-left:0;padding-left:0}
   .hero-facts .wrap{grid-template-columns:1fr}
   .fact{border-right:0;border-bottom:1px solid rgba(255,255,255,.22);padding-right:0}
@@ -520,6 +519,8 @@ footer .draft{
   .btn:hover{transform:none}
 }
 </style>
+</head>
+<body>
 
 <!-- Logo gradient, defined once outside any hidden subtree so both the
      sidebar and the mobile top bar can reference it. -->
@@ -578,9 +579,13 @@ footer .draft{
   </aside>
 
   <div>
-    <!-- ============ TOP BAR (mobile) ============ -->
+    <!-- ============ TOP BAR (mobile) ============
+         The bar and its menu panel share one sticky wrapper, so the menu
+         opens right under the bar wherever the page is scrolled to. -->
+    <div class="mobile-head">
     <div class="topbar">
       <a class="brand" href="#top">
+        <!-- SWAP: replace the <svg> below with <img src="cvh-logo.png" alt="CVH Group"> -->
         <span class="logo-tile">
           <svg viewBox="0 0 120 120" role="img" aria-label="CVH Group">
           <circle cx="60" cy="60" r="42" fill="none" stroke="url(#cvhg)" stroke-width="21"/>
@@ -602,8 +607,9 @@ footer .draft{
         <a href="#how">How hire works</a>
         <a href="#workshop">Servicing &amp; MOT</a>
         <a href="#fleets">Business fleets</a>
-          <a href="#contact">Contact</a>
+        <a href="#contact">Contact</a>
       </nav>
+    </div>
     </div>
 
     <!-- ============ UTILITY BAR ============ -->
@@ -626,8 +632,8 @@ footer .draft{
               MOTs and repairs vans all day, every day. One yard, both jobs.
             </p>
             <div class="hero-cta">
-              <a class="btn btn-primary" href="#fleet">Check availability</a>
-              <a class="btn btn-outline" href="#workshop">Book the workshop</a>
+              <a class="btn btn-primary" href="#contact">Check availability</a>
+              <a class="btn btn-outline" href="#contact">Book the workshop</a>
             </div>
           </div>
 
@@ -714,7 +720,7 @@ footer .draft{
               <li>Diagnostics, DPF and AdBlue faults, clutch and cambelt work</li>
               <li>Courtesy van from our own fleet while yours is on the ramp</li>
             </ul>
-            <a class="btn btn-primary" href="#workshop">Book it in</a>
+            <a class="btn btn-primary" href="#contact">Book it in</a>
           </article>
         </div>
       </div>
@@ -855,19 +861,19 @@ footer .draft{
         </div>
         <div class="included">
           <div class="inc">
-            <h4>Fully insured</h4>
+            <h3>Fully insured</h3>
             <p>Comprehensive cover for drivers aged 25–70 with a clean licence. Ages 21–24 by arrangement.</p>
           </div>
           <div class="inc">
-            <h4>Breakdown cover</h4>
+            <h3>Breakdown cover</h3>
             <p>Nationwide roadside assistance and recovery on every vehicle, 24 hours a day.</p>
           </div>
           <div class="inc">
-            <h4>Serviced in-house</h4>
+            <h3>Serviced in-house</h3>
             <p>Our own technicians maintain the hire fleet to schedule. Nothing goes out with a warning light on.</p>
           </div>
           <div class="inc">
-            <h4>Clean and fuelled</h4>
+            <h3>Clean and fuelled</h3>
             <p>Valeted between hires and handed over full to full, with a photographed condition check.</p>
           </div>
         </div>
@@ -1116,7 +1122,7 @@ footer .draft{
             </form>
 
             <div class="formnote" id="formResult" hidden>
-              <h4>This form is not connected yet</h4>
+              <h3>This form is not connected yet</h3>
               <p>This preview is not yet wired to an inbox, so nothing has been sent. Once the form
                  endpoint and contact details are set up, enquiries will arrive straight away.</p>
             </div>
@@ -1179,6 +1185,13 @@ footer .draft{
         panel.hidden = true;
       }
     });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !panel.hidden) {
+        btn.setAttribute('aria-expanded', 'false');
+        panel.hidden = true;
+        btn.focus();
+      }
+    });
   }
 
   var form = document.getElementById('enquiry');
@@ -1193,3 +1206,5 @@ footer .draft{
   }
 })();
 </script>
+</body>
+</html>
